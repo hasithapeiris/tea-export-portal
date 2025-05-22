@@ -25,8 +25,8 @@ const Navbar: React.FC = () => {
           <a href="#benefits" className="text-white hover:text-yellow-300">
             Benefits
           </a>
-          <a href="#contact" className="text-white hover:text-yellow-300">
-            Contact
+          <a href="/login" className="text-white hover:text-yellow-300">
+            Login
           </a>
 
           <Link to="/chat">
