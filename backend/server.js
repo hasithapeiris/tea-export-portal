@@ -11,13 +11,13 @@ import regionalProdRoutes from "./routes/regionalProdRouter.js";
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 connectDB();
 
 const app = express();
 
-const allowedOrigin = "http://localhost:5173";
+const allowedOrigin = process.env.ORIGIN_URL;
 
 app.use(
   cors({
