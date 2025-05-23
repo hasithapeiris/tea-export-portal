@@ -7,6 +7,7 @@ import Tea_Exports from "./tea_exports.png";
 import Tea_Production from "./tea_production.jpg";
 import Tea_Disease from "./tea_disease.png";
 import Tea_Price from "./tea_price.jpg";
+import Profile from "./profile.png";
 
 export {
   Header_1,
@@ -18,4 +19,5 @@ export {
   Tea_Production,
   Tea_Disease,
   Tea_Price,
+  Profile,
 };

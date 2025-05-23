@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { CircleUserRound } from "lucide-react";
 
 const Navbar: React.FC = () => {
   const { user, logout } = useAuth();
@@ -13,7 +14,7 @@ const Navbar: React.FC = () => {
           </div>
         </Link>
 
-        <div className="hidden md:block space-x-6 font-medium">
+        <div className="hidden md:flex items-center space-x-6 font-medium">
           <Link to="/" className="text-white hover:text-yellow-300">
             Home
           </Link>
@@ -27,7 +28,7 @@ const Navbar: React.FC = () => {
             Benefits
           </a>
           {!user ? (
-            <Link to="/login" className="text-white hover:text-yellow-300">
+            <Link to="/login" className="button-yellow-outline">
               Login
             </Link>
           ) : (
@@ -40,6 +41,9 @@ const Navbar: React.FC = () => {
               </button>
               <Link to="/chat">
                 <button className="button-yellow-outline">AI Chat</button>
+              </Link>
+              <Link to="/profile" className="text-white">
+                <CircleUserRound />
               </Link>
             </>
           )}

@@ -3,12 +3,14 @@ import MenuIco from "../assets/menu.png";
 import { useState } from "react";
 import LogoutMDIco from "../assets/logout_md.png";
 import { FaPaperPlane } from "react-icons/fa";
+import { useAuth } from "../context/AuthContext";
 
 const ChatWindow = () => {
   const [messages, setMessages] = useState([
     { sender: "agent", text: "Hello! How can I assist you today?" },
   ]);
   const [input, setInput] = useState("");
+  const { logout } = useAuth();
 
   const sendMessage = () => {
     if (input.trim() !== "") {
@@ -61,7 +63,10 @@ const ChatWindow = () => {
             {/* Logout Button */}
             <div>
               <div className="w-full items-end justify-end md:justify-start flex">
-                <button className="py-3 hidden items-center justify-between px-6 border border-[#0455bf]/10 xl:flex cursor-pointer hover:bg-gray-200 transition duration-200 rounded-lg w-full text-left">
+                <button
+                  onClick={logout}
+                  className="py-3 hidden items-center justify-between px-6 border border-[#0455bf]/10 xl:flex cursor-pointer hover:bg-gray-200 transition duration-200 rounded-lg w-full text-left"
+                >
                   Logout
                   <img src={LogoutMDIco} className="w-8 h-8" />
                 </button>
