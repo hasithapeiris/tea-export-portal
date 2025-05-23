@@ -6,7 +6,6 @@ import { Trash2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import background from "./../../assets/public/background.png";
 
 // Define interfaces for our data structures
 interface Prediction {

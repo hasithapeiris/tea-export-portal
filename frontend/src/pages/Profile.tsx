@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { Header_1, Profile } from "../assets";
 import { useAuth } from "../context/AuthContext";
 import { LogOut } from "lucide-react";
-import { Footer, Navbar } from "../components";
 
 interface User {
   _id: string;

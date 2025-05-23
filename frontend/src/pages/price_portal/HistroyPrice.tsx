@@ -17,7 +17,6 @@ import {
 } from "recharts";
 import DatePicker from "react-datepicker";
 import { useParams } from "react-router-dom";
-import background from "./../../assets/public/background.png";
 import "react-datepicker/dist/react-datepicker.css";
 import { SubHeader } from "../../components";
 import { Tea_Export } from "../../assets";

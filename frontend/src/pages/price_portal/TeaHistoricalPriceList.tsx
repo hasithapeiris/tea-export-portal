@@ -5,7 +5,6 @@ import { Trash2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import background from "./../../assets/public/background.png";
 import TeaPredictionList from "./TeaPredictionList";
 import { SubHeader } from "../../components";
 import { Tea_Export } from "../../assets";

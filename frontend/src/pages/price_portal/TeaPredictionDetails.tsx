@@ -2,14 +2,13 @@ import { Card } from "flowbite-react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "jspdf-autotable";
-import jsPDF from "jspdf";
+//import jsPDF from "jspdf";
 import Swal from "sweetalert2";
-import html2canvas from "html2canvas";
+//import html2canvas from "html2canvas";
 import Loading from "../../components/Loading";
-import background from "./../../assets/public/background.png";
 import PredictionTable from "../../components/predictions/PredictionTable";
 import PredictionChart from "../../components/predictions/PredictionChart";
-import PredictionFilter from "../../components/predictions/PredictionFilter";
+//import PredictionFilter from "../../components/predictions/PredictionFilter";
 import PredictionStatistics from "../../components/predictions/PredictionStatistics";
 import type {
   PredictionDataPoint,
@@ -65,32 +64,32 @@ const TeaPredictionDetails = (): JSX.Element => {
   };
 
   // Handle Download PDF
-  const downloadPDF = async (): Promise<void> => {
-    const doc = new jsPDF("p", "mm", "a4");
+  // const downloadPDF = async (): Promise<void> => {
+  //   const doc = new jsPDF("p", "mm", "a4");
 
-    for (let index = 0; index < filteredData.length; index++) {
-      const cardElement = document.getElementById(`cardContainer-${index}`);
+  //   for (let index = 0; index < filteredData.length; index++) {
+  //     const cardElement = document.getElementById(`cardContainer-${index}`);
 
-      if (cardElement) {
-        try {
-          const canvas = await html2canvas(cardElement, { scale: 2 });
-          const imgData = canvas.toDataURL("image/png");
-          const imgWidth = 190;
-          const imgHeight = (canvas.height * imgWidth) / canvas.width;
+  //     if (cardElement) {
+  //       try {
+  //         const canvas = await html2canvas(cardElement, { scale: 2 });
+  //         const imgData = canvas.toDataURL("image/png");
+  //         const imgWidth = 190;
+  //         const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-          if (index > 0) {
-            doc.addPage();
-          }
+  //         if (index > 0) {
+  //           doc.addPage();
+  //         }
 
-          doc.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
-        } catch (error) {
-          console.error("Error capturing card:", error);
-        }
-      }
-    }
+  //         doc.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
+  //       } catch (error) {
+  //         console.error("Error capturing card:", error);
+  //       }
+  //     }
+  //   }
 
-    doc.save("Tea_Prediction_Report.pdf");
-  };
+  //   doc.save("Tea_Prediction_Report.pdf");
+  // };
 
   if (loading) {
     return (

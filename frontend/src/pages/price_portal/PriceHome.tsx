@@ -13,7 +13,6 @@ import Swal from "sweetalert2";
 import card1 from "../../assets/cards/card1.png";
 import card2 from "../../assets/cards/card2.png";
 import card3 from "../../assets/cards/card3.png";
-import background from "./../../assets/public/background.png";
 import { SubHeader } from "../../components";
 import { Tea_Export } from "../../assets";
 
