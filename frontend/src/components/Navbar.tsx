@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar: React.FC = () => {
+  const { user, logout } = useAuth();
+
   return (
     <nav className="absolute z-10 top-0 py-4 w-full bg-transparent">
       <div className="wrapper flex-between">
-        {/* Logo Section */}
         <Link to="/">
           <div className="flex-center gap-2">
             <img src="/icon.png" alt="TPP Logo" className="h-8 md:h-12" />
           </div>
         </Link>
 
-        {/* Navigation Links */}
         <div className="hidden md:block space-x-6 font-medium">
           <Link to="/" className="text-white hover:text-yellow-300">
             Home
@@ -25,13 +26,23 @@ const Navbar: React.FC = () => {
           <a href="#benefits" className="text-white hover:text-yellow-300">
             Benefits
           </a>
-          <a href="/login" className="text-white hover:text-yellow-300">
-            Login
-          </a>
-
-          <Link to="/chat">
-            <button className="button-yellow-outline">AI Chat</button>
-          </Link>
+          {!user ? (
+            <Link to="/login" className="text-white hover:text-yellow-300">
+              Login
+            </Link>
+          ) : (
+            <>
+              <button
+                onClick={logout}
+                className="text-white hover:text-yellow-300"
+              >
+                Logout
+              </button>
+              <Link to="/chat">
+                <button className="button-yellow-outline">AI Chat</button>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </nav>

@@ -22,9 +22,7 @@ const NationalProdForecast = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:5000/api/national-prod"
-      );
+      const response = await axios.get("/api/national-prod");
       setData(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -33,12 +31,9 @@ const NationalProdForecast = () => {
 
   const fetchCharts = async (label = "") => {
     try {
-      const response = await axios.get(
-        `http://localhost:5000/api/mini-charts`,
-        {
-          params: label ? { label } : {},
-        }
-      );
+      const response = await axios.get(`/api/mini-charts`, {
+        params: label ? { label } : {},
+      });
       setCharts(response.data);
     } catch (error) {
       console.error("Error fetching charts:", error);

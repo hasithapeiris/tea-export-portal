@@ -17,9 +17,7 @@ const ForexForecast = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:5000/api/forex-forecast"
-      );
+      const response = await axios.get("/api/forex-forecast");
       setData(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -28,12 +26,9 @@ const ForexForecast = () => {
 
   const fetchCharts = async (label = "") => {
     try {
-      const response = await axios.get(
-        `http://localhost:5000/api/mini-charts`,
-        {
-          params: label ? { label } : {},
-        }
-      );
+      const response = await axios.get(`/api/mini-charts`, {
+        params: label ? { label } : {},
+      });
       setCharts(response.data);
     } catch (error) {
       console.error("Error fetching charts:", error);
