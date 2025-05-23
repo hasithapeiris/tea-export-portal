@@ -1,7 +1,9 @@
 import User from "../models/userModel.js";
 import { generateToken } from "../utils/generateToken.js";
-import redisClient from "../utils/redisClient.js";
+import { setTokenCookie } from "../utils/setTokenCookie.js";
 
+// @desc    Login user
+// @route   POST /api/auth/login
 export const loginUser = async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
@@ -11,31 +13,13 @@ export const loginUser = async (req, res) => {
   }
 
   const token = generateToken(user._id);
-  const userData = {
-    _id: user._id,
-    name: user.name,
-    email: user.email,
-    isAdmin: user.isAdmin,
-    createdAt: user.createdAt,
-  };
-
-  await redisClient.set(
-    `user:${user._id}`,
-    JSON.stringify(userData),
-    "EX",
-    3600
-  );
-
-  res.cookie("token", token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "Strict",
-    maxAge: 60 * 60 * 1000,
-  });
+  setTokenCookie(res, token);
 
   res.json({ message: "Logged in successfully" });
 };
 
+// @desc    Register user
+// @route   POST /api/auth/register
 export const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -46,30 +30,15 @@ export const registerUser = async (req, res) => {
     }
 
     const user = await User.create({ name, email, password });
-
-    // Generate JWT
     const token = generateToken(user._id);
+    setTokenCookie(res, token);
 
-    // Set cookie
-    res.cookie("token", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "Strict",
-      maxAge: 3600000, // 1 hour
-    });
-
-    // Cache user in Redis (excluding password)
-    const userToCache = {
-      _id: user._id.toString(),
+    res.status(201).json({
+      _id: user._id,
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
-    };
-    await redisClient.set(`user:${user._id}`, JSON.stringify(userToCache), {
-      EX: 3600, // Set expiration in seconds (1 hour)
     });
-
-    res.status(201).json(userToCache);
   } catch (err) {
     res
       .status(500)
@@ -77,16 +46,21 @@ export const registerUser = async (req, res) => {
   }
 };
 
+// @desc    Get current logged-in user
+// @route   GET /api/auth/me
 export const getMe = async (req, res) => {
   res.json(req.user);
 };
 
+// @desc    Logout user
+// @route   POST /api/auth/logout
 export const logoutUser = async (req, res) => {
   res.clearCookie("token");
-  await redisClient.del(`user:${req.user._id}`);
   res.json({ message: "Logged out successfully" });
 };
 
+// @desc    Admin-only route
+// @route   GET /api/auth/admin-only
 export const adminOnlyRoute = (req, res) => {
   res.json({ message: "Welcome Admin!" });
 };

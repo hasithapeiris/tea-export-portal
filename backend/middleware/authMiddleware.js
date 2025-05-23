@@ -1,6 +1,5 @@
 import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
-import redisClient from "../utils/redisClient.js";
 
 export const authMiddleware = async (req, res, next) => {
   const token = req.cookies.token;
@@ -8,18 +7,13 @@ export const authMiddleware = async (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const redisKey = `user:${decoded.id}`;
-    let userData = await redisClient.get(redisKey);
+    const user = await User.findById(decoded.id).select("-password");
 
-    if (!userData) {
-      const user = await User.findById(decoded.id).select("-password");
-      if (!user) return res.status(404).json({ message: "User not found" });
-
-      userData = JSON.stringify(user);
-      await redisClient.set(redisKey, userData, "EX", 3600);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
     }
 
-    req.user = JSON.parse(userData);
+    req.user = user;
     next();
   } catch (err) {
     return res.status(401).json({ message: "Invalid or expired token" });
