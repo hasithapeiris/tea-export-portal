@@ -54,7 +54,7 @@ const TeaPredictionList = (): JSX.Element => {
   }, []);
 
   const handlePredictionClick = (id: string): void => {
-    navigate(`/prediction-details/${id}`);
+    navigate(`/portal/price/prediction-details/${id}`);
   };
 
   const handleDelete = async (id: string): Promise<void> => {
@@ -109,10 +109,7 @@ const TeaPredictionList = (): JSX.Element => {
   }
 
   return (
-    <div
-      className="min-h-screen p-4 bg-cover bg-center"
-      style={{ backgroundImage: `url(${background})` }}
-    >
+    <div className="min-h-screen p-4 bg-cover bg-center">
       <h2 className="text-3xl font-bold text-green-600 text-center mb-2">
         Tea Price Forecast Summaries
       </h2>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { Profile } from "../assets";
+import { Header_1, Profile } from "../assets";
 import { useAuth } from "../context/AuthContext";
 import { LogOut } from "lucide-react";
 import { Footer, Navbar } from "../components";
@@ -68,7 +68,7 @@ const UserProfile = () => {
   return (
     <div
       className="min-h-screen bg-cover bg-center flex flex-col items-center px-4 py-8"
-      style={{ backgroundImage: "url('/header_img_1.jpg')" }}
+      style={{ backgroundImage: `url(${Header_1})` }}
     >
       <Link to="/">
         <img src="/icon.png" alt="Logo" className="h-16 mb-14" />

@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
-import { Tea_Export } from "../assets";
-import { ChartGrid, FEESummary, ForecastChart, SubHeader } from "../components";
+import { Tea_Export } from "../../assets";
+import {
+  ChartGrid,
+  FEESummary,
+  ForecastChart,
+  SubHeader,
+} from "../../components";
 import axios from "axios";
 
 const ForexForecast = () => {

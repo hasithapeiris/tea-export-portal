@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { Tea_Export } from "../assets";
+import { Tea_Export } from "../../assets";
 import {
   ChartGrid,
   ForecastChart,
   SubHeader,
   TeaProductionSummary,
-} from "../components";
+} from "../../components";
 import axios from "axios";
 
 const NationalProdForecast = () => {

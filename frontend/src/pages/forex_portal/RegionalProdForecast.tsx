@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { Tea_Export } from "../assets";
+import { Tea_Export } from "../../assets";
 import {
   RegionalChart,
   RegionalMiniChart,
   RegionalSummary,
   SubHeader,
-} from "../components";
+} from "../../components";
 import axios from "axios";
-import { RegionalChartType } from "../types";
+import { RegionalChartType } from "../../types";
 
 const RegionalProdForecast = () => {
   const [data, setData] = useState([]);

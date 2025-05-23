@@ -21,11 +21,11 @@ import {
 import ChatWindow from "./pages/ChatWindow";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import TeaPredictionList from "./pages/predictions/TeaPredictionList";
-import TeaPredictionDetails from "./pages/predictions/TeaPredictionDetails";
-import TeaHistoricalPriceList from "./pages/prices/TeaHistoricalPriceList";
-import HistroyPrice from "./pages/prices/HistroyPrice";
-import PriceHome from "./pages/home/PriceHome";
+import TeaPredictionList from "./pages/price_portal/TeaPredictionList";
+import TeaPredictionDetails from "./pages/price_portal/TeaPredictionDetails";
+import TeaHistoricalPriceList from "./pages/price_portal/TeaHistoricalPriceList";
+import HistroyPrice from "./pages/price_portal/HistroyPrice";
+import PriceHome from "./pages/price_portal/PriceHome";
 
 const ProtectedRoute = ({ adminOnly = false }: { adminOnly?: boolean }) => {
   const { user, loading } = useAuth();

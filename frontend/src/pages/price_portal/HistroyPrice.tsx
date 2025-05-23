@@ -19,6 +19,8 @@ import DatePicker from "react-datepicker";
 import { useParams } from "react-router-dom";
 import background from "./../../assets/public/background.png";
 import "react-datepicker/dist/react-datepicker.css";
+import { SubHeader } from "../../components";
+import { Tea_Export } from "../../assets";
 
 // Define TypeScript interfaces
 interface SubRegions {
@@ -133,6 +135,10 @@ const HistroyPrice = (): JSX.Element => {
   const { id } = useParams<{ id: string }>();
   const baseURL = import.meta.env.VITE_API_BASE_URL as string;
 
+  const title = "Tea Price Details";
+  const description =
+    "Forecast tea prices affecting the tea industry. Stay prepared for currency shifts and optimize export strategies with Prophet forecasts.";
+
   // filter state
   const [regionCategory, setRegionCategory] = useState<string>(
     defaultRegionCategory
@@ -241,159 +247,154 @@ const HistroyPrice = (): JSX.Element => {
   };
 
   return (
-    <div
-      className="min-h-screen p-4 bg-cover bg-center"
-      style={{ backgroundImage: `url(${background})` }}
-    >
-      <h2 className="text-3xl font-bold text-green-600 text-center mb-2">
-        Tea Price Details
-      </h2>
-      <hr className="border-b-1 border-green-600 mx-auto mb-6" />
+    <>
+      <SubHeader image={Tea_Export} title={title} description={description} />
+      <div className="min-h-screen p-4 bg-cover bg-center">
+        <div className="flex flex-col md:flex-row gap-6">
+          {/* Filters */}
+          <div className="bg-white p-6 rounded-lg shadow-lg md:w-1/4">
+            <label className="block text-lg font-semibold text-green-600">
+              Region Category
+            </label>
+            <select
+              className="mt-2 p-2 border rounded-md w-full"
+              value={regionCategory}
+              onChange={onCategoryChange}
+            >
+              {Object.keys(regionCategories).map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat}
+                </option>
+              ))}
+            </select>
 
-      <div className="flex flex-col md:flex-row gap-6">
-        {/* Filters */}
-        <div className="bg-white p-6 rounded-lg shadow-lg md:w-1/4">
-          <label className="block text-lg font-semibold text-green-600">
-            Region Category
-          </label>
-          <select
-            className="mt-2 p-2 border rounded-md w-full"
-            value={regionCategory}
-            onChange={onCategoryChange}
-          >
-            {Object.keys(regionCategories).map((cat) => (
-              <option key={cat} value={cat}>
-                {cat}
-              </option>
-            ))}
-          </select>
+            {regionCategory && (
+              <>
+                <label className="block mt-4 text-lg font-semibold text-green-600">
+                  Region
+                </label>
+                <select
+                  className="mt-2 p-2 border rounded-md w-full"
+                  value={selectedRegion}
+                  onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+                    setSelectedRegion(e.target.value);
+                    setSelectedSubRegion("");
+                  }}
+                >
+                  <option value="">-- select --</option>
+                  {regionCategories[regionCategory]?.regions.map((r) => (
+                    <option key={r} value={r}>
+                      {r.replace(/_/g, " ")}
+                    </option>
+                  ))}
+                </select>
+              </>
+            )}
 
-          {regionCategory && (
-            <>
-              <label className="block mt-4 text-lg font-semibold text-green-600">
-                Region
-              </label>
-              <select
-                className="mt-2 p-2 border rounded-md w-full"
-                value={selectedRegion}
-                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
-                  setSelectedRegion(e.target.value);
-                  setSelectedSubRegion("");
-                }}
-              >
-                <option value="">-- select --</option>
-                {regionCategories[regionCategory]?.regions.map((r) => (
-                  <option key={r} value={r}>
-                    {r.replace(/_/g, " ")}
-                  </option>
-                ))}
-              </select>
-            </>
-          )}
+            {selectedRegion && (
+              <div className="flex flex-col">
+                <label className="block mt-4 text-lg font-semibold text-green-600">
+                  Subregion
+                </label>
+                <select
+                  className="mt-2 p-2 border rounded-md w-full"
+                  value={selectedSubRegion}
+                  onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                    setSelectedSubRegion(e.target.value)
+                  }
+                >
+                  <option value="">-- select --</option>
+                  {regionCategories[regionCategory]?.subRegions[
+                    selectedRegion
+                  ]?.map((sr) => (
+                    <option key={sr} value={sr}>
+                      {sr}
+                    </option>
+                  ))}
+                </select>
 
-          {selectedRegion && (
-            <div className="flex flex-col">
-              <label className="block mt-4 text-lg font-semibold text-green-600">
-                Subregion
-              </label>
-              <select
-                className="mt-2 p-2 border rounded-md w-full"
-                value={selectedSubRegion}
-                onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                  setSelectedSubRegion(e.target.value)
-                }
-              >
-                <option value="">-- select --</option>
-                {regionCategories[regionCategory]?.subRegions[
-                  selectedRegion
-                ]?.map((sr) => (
-                  <option key={sr} value={sr}>
-                    {sr}
-                  </option>
-                ))}
-              </select>
+                <label className="block mt-4 text-lg font-semibold text-green-600">
+                  Start Date
+                </label>
+                <DatePicker
+                  className="mt-2 p-2 border rounded-md w-full"
+                  selected={startDate}
+                  onChange={(date: Date | null) => date && setStartDate(date)}
+                  dateFormat="yyyy/MM/dd"
+                />
 
-              <label className="block mt-4 text-lg font-semibold text-green-600">
-                Start Date
-              </label>
-              <DatePicker
-                className="mt-2 p-2 border rounded-md w-full"
-                selected={startDate}
-                onChange={(date: Date | null) => date && setStartDate(date)}
-                dateFormat="yyyy/MM/dd"
-              />
+                <label className="block mt-4 text-lg font-semibold text-green-600">
+                  End Date
+                </label>
+                <DatePicker
+                  className="mt-2 p-2 border rounded-md w-full"
+                  selected={endDate}
+                  onChange={(date: Date | null) => date && setEndDate(date)}
+                  dateFormat="yyyy/MM/dd"
+                />
 
-              <label className="block mt-4 text-lg font-semibold text-green-600">
-                End Date
-              </label>
-              <DatePicker
-                className="mt-2 p-2 border rounded-md w-full"
-                selected={endDate}
-                onChange={(date: Date | null) => date && setEndDate(date)}
-                dateFormat="yyyy/MM/dd"
-              />
-
-              <button
-                onClick={handleGetTeaPrice}
-                className="mt-6 w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600"
-              >
-                Get Tea Price Details
-              </button>
-            </div>
-          )}
-        </div>
-
-        {/* Chart & Table */}
-        <div className="bg-white p-6 rounded-lg shadow-lg flex-1">
-          {loading ? (
-            <p className="text-center">Loading...</p>
-          ) : (
-            <>
-              <h2 className="text-2xl font-bold text-green-600 text-center mb-4">
-                Previous Price Chart
-              </h2>
-              <div style={{ height: 300 }}>
-                <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={teaData}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="Year" />
-                    <YAxis />
-                    <Tooltip />
-                    <Legend />
-                    <Line type="monotone" dataKey="MonthPrice" />
-                    <Line type="monotone" dataKey="CumulativePrice" />
-                  </LineChart>
-                </ResponsiveContainer>
+                <button
+                  onClick={handleGetTeaPrice}
+                  className="mt-6 w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600"
+                >
+                  Get Tea Price Details
+                </button>
               </div>
-              <div className="overflow-x-auto mt-6">
-                <table className="table-auto w-full border">
-                  <thead>
-                    <tr>
-                      <th className="border p-2">Year</th>
-                      <th className="border p-2">Tea Region</th>
-                      <th className="border p-2">Sub District</th>
-                      <th className="border p-2">Month Price (Rs)</th>
-                      <th className="border p-2">Cumulative Price (Rs)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {teaData.map((d) => (
-                      <tr key={d._id}>
-                        <td className="border p-2">{d.Year}</td>
-                        <td className="border p-2">{d.TeaRegion}</td>
-                        <td className="border p-2">{d.SubDistrict}</td>
-                        <td className="border p-2">{d.MonthPrice}</td>
-                        <td className="border p-2">{d.CumulativePrice}</td>
+            )}
+          </div>
+
+          {/* Chart & Table */}
+          <div className="bg-white p-6 rounded-lg shadow-lg flex-1">
+            {loading ? (
+              <p className="text-center">Loading...</p>
+            ) : (
+              <>
+                <h2 className="text-2xl font-bold text-green-600 text-center mb-4">
+                  Previous Price Chart
+                </h2>
+                <div style={{ height: 300 }}>
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart data={teaData}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="Year" />
+                      <YAxis />
+                      <Tooltip />
+                      <Legend />
+                      <Line type="monotone" dataKey="MonthPrice" />
+                      <Line type="monotone" dataKey="CumulativePrice" />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
+                <div className="overflow-x-auto mt-6">
+                  <table className="table-auto w-full border">
+                    <thead>
+                      <tr>
+                        <th className="border p-2">Year</th>
+                        <th className="border p-2">Tea Region</th>
+                        <th className="border p-2">Sub District</th>
+                        <th className="border p-2">Month Price (Rs)</th>
+                        <th className="border p-2">Cumulative Price (Rs)</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </>
-          )}
+                    </thead>
+                    <tbody>
+                      {teaData.map((d) => (
+                        <tr key={d._id}>
+                          <td className="border p-2">{d.Year}</td>
+                          <td className="border p-2">{d.TeaRegion}</td>
+                          <td className="border p-2">{d.SubDistrict}</td>
+                          <td className="border p-2">{d.MonthPrice}</td>
+                          <td className="border p-2">{d.CumulativePrice}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

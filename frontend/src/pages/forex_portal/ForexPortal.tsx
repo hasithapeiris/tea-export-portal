@@ -1,5 +1,5 @@
-import { Header_1, Tea_Exports, Tea_Production } from "../assets";
-import { SubHeader } from "../components";
+import { Header_1, Tea_Exports, Tea_Production } from "../../assets";
+import { SubHeader } from "../../components";
 
 const Card = ({
   image,

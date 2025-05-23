@@ -6,7 +6,7 @@ type header = {
 
 const SubHeader = ({ image, title, description }: header) => {
   return (
-    <div className="relative h-96">
+    <div className="relative h-96 bg-black">
       <img
         src={image}
         alt="cover-image"

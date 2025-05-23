@@ -14,6 +14,8 @@ import card1 from "../../assets/cards/card1.png";
 import card2 from "../../assets/cards/card2.png";
 import card3 from "../../assets/cards/card3.png";
 import background from "./../../assets/public/background.png";
+import { SubHeader } from "../../components";
+import { Tea_Export } from "../../assets";
 
 // Define interfaces for our data structures
 interface CardData {
@@ -36,6 +38,10 @@ const PriceHome = (): JSX.Element => {
   const [periods, setPeriods] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
+
+  const title = "Forecasted Tea Price Information";
+  const description =
+    "Forecast tea prices affecting the tea industry. Stay prepared for currency shifts and optimize export strategies with Prophet forecasts.";
 
   const handleGetPredictions = async (): Promise<void> => {
     if (!periods) {
@@ -115,66 +121,66 @@ const PriceHome = (): JSX.Element => {
   ];
 
   return (
-    <div
-      className="flex min-h-screen p-4 flex-col items-center bg-cover bg-center"
-      style={{ backgroundImage: `url(${background})` }}
-    >
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mx-28 mt-10">
-        {cards.map((card, index) => (
-          <div
-            key={index}
-            className="bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer transform hover:scale-105 transition-transform"
-            onClick={card.onClick}
-          >
-            <img
-              src={card.image || "/placeholder.svg"}
-              alt={card.title}
-              className="h-96 w-full object-cover"
-            />
-            <div className="p-4">
-              <h2 className="text-xl font-bold mb-2">{card.title}</h2>
-              <p className="text-gray-600">{card.description}</p>
+    <>
+      <SubHeader image={Tea_Export} title={title} description={description} />
+      <div className="wrapper flex flex-col items-center bg-cover bg-center my-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {cards.map((card, index) => (
+            <div
+              key={index}
+              className="bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer transform hover:scale-105 transition-transform"
+              onClick={card.onClick}
+            >
+              <img
+                src={card.image || "/placeholder.svg"}
+                alt={card.title}
+                className="h-96 w-full object-cover"
+              />
+              <div className="p-4">
+                <h2 className="text-xl font-bold mb-2">{card.title}</h2>
+                <p className="text-gray-600">{card.description}</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      {/* Modal for entering the number of periods */}
-      <Modal show={openModal} onClose={() => setOpenModal(false)}>
-        <ModalHeader>Enter Forecast Period</ModalHeader>
-        <ModalBody>
-          <TextInput
-            type="number"
-            placeholder="Forecast period in months (max 12) "
-            value={periods}
-            onChange={handleInputChange}
-          />
-        </ModalBody>
-        <ModalFooter>
-          <Button
-            onClick={handleGetPredictions}
-            className="w-full bg-green-600"
-            disabled={loading}
-          >
-            {loading ? (
-              <>
-                <Spinner size="sm" />
-                <span className="pl-3">Submitting...</span>
-              </>
-            ) : (
-              "Generate Forecast"
-            )}
-          </Button>
-          <Button
-            color="gray"
-            onClick={() => setOpenModal(false)}
-            className="w-full"
-          >
-            Cancel
-          </Button>
-        </ModalFooter>
-      </Modal>
-    </div>
+        {/* Modal for entering the number of periods */}
+        <Modal show={openModal} onClose={() => setOpenModal(false)}>
+          <ModalHeader>Enter Forecast Period</ModalHeader>
+          <ModalBody>
+            <TextInput
+              type="number"
+              placeholder="Forecast period in months (max 12) "
+              value={periods}
+              onChange={handleInputChange}
+            />
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              onClick={handleGetPredictions}
+              className="w-full bg-green-600"
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <Spinner size="sm" />
+                  <span className="pl-3">Submitting...</span>
+                </>
+              ) : (
+                "Generate Forecast"
+              )}
+            </Button>
+            <Button
+              color="gray"
+              onClick={() => setOpenModal(false)}
+              className="w-full"
+            >
+              Cancel
+            </Button>
+          </ModalFooter>
+        </Modal>
+      </div>
+    </>
   );
 };
 

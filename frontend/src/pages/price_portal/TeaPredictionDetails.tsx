@@ -17,12 +17,18 @@ import type {
   PredictionDetails,
   Statistics,
 } from "../../types/prediction-types";
+import { SubHeader } from "../../components";
+import { Tea_Export } from "../../assets";
 
 const TeaPredictionDetails = (): JSX.Element => {
   const { id } = useParams<{ id: string }>();
   const [prediction, setPrediction] = useState<PredictionDetails | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [filteredData, setFilteredData] = useState<RegionPrediction[]>([]);
+
+  const title = "Tea Price Prediction Details";
+  const description =
+    "Forecast tea prices affecting the tea industry. Stay prepared for currency shifts and optimize export strategies with Prophet forecasts.";
 
   useEffect(() => {
     const fetchPredictionDetails = async (): Promise<void> => {
@@ -111,77 +117,73 @@ const TeaPredictionDetails = (): JSX.Element => {
   });
 
   return (
-    <div
-      className="min-h-screen p-4 bg-cover bg-center"
-      style={{ backgroundImage: `url(${background})` }}
-    >
-      <h2 className="text-3xl font-bold text-green-600 text-center mb-6">
-        Tea Price Prediction Details
-      </h2>
-      <hr className="border-b-1 border-green-600 mx-auto mb-6" />
-      <div className="w-full bg-white/30 backdrop-blur-md p-6 rounded-lg shadow-lg">
-        <div className="flex justify-between text-black text-lg mb-4">
-          <div className="flex flex-col">
-            <p className="text-lg font-semibold text-green-600 ">
-              <strong>Forecast Periods:</strong> {prediction.periods} Months
-            </p>
-            <p className="text-md text-gray-800">
-              <strong>Prediction Generated on:</strong> {date}
-            </p>
-            <p className="text-md text-gray-800">
-              <strong>Time:</strong> {time}
-            </p>
+    <>
+      <SubHeader image={Tea_Export} title={title} description={description} />
+      <div className="min-h-screen p-4 bg-cover bg-center">
+        <div className="w-full bg-white/30 backdrop-blur-md p-6 rounded-lg shadow-lg">
+          <div className="flex justify-between text-black text-lg mb-4">
+            <div className="flex flex-col">
+              <p className="text-lg font-semibold text-green-600 ">
+                <strong>Forecast Periods:</strong> {prediction.periods} Months
+              </p>
+              <p className="text-md text-gray-800">
+                <strong>Prediction Generated on:</strong> {date}
+              </p>
+              <p className="text-md text-gray-800">
+                <strong>Time:</strong> {time}
+              </p>
+            </div>
           </div>
-        </div>
 
-        {/* <PredictionFilter
+          {/* <PredictionFilter
           prediction={prediction}
           setFilteredData={handleFilteredDataChange}
           downloadPDF={downloadPDF}
         /> */}
 
-        {/* Line Charts for Each Region */}
-        {filteredData.map((region, index) => {
-          const { startDate, endDate, highestPrice, lowestPrice, avgPrice } =
-            calculateStatistics(region.data);
-          return (
-            <div
-              key={index}
-              id={`cardContainer-${index}`}
-              className="mb-6 flex"
-            >
-              <Card className="w-full">
-                <h3 className="text-2xl font-semibold text-cyan-800 mb-4">
-                  {region.region
-                    .replace(/_/g, " ")
-                    .replace(/\b\w/g, (char) => char.toUpperCase())}
-                </h3>
-                <div className="flex justify-between">
-                  <div
-                    id={`chartContainer-${index}`}
-                    className="mt-6 w-2/3 pr-10"
-                  >
-                    <PredictionChart index={index} data={region.data} />
-                  </div>
+          {/* Line Charts for Each Region */}
+          {filteredData.map((region, index) => {
+            const { startDate, endDate, highestPrice, lowestPrice, avgPrice } =
+              calculateStatistics(region.data);
+            return (
+              <div
+                key={index}
+                id={`cardContainer-${index}`}
+                className="mb-6 flex"
+              >
+                <Card className="w-full">
+                  <h3 className="text-2xl font-semibold text-cyan-800 mb-4">
+                    {region.region
+                      .replace(/_/g, " ")
+                      .replace(/\b\w/g, (char) => char.toUpperCase())}
+                  </h3>
+                  <div className="flex justify-between">
+                    <div
+                      id={`chartContainer-${index}`}
+                      className="mt-6 w-2/3 pr-10"
+                    >
+                      <PredictionChart index={index} data={region.data} />
+                    </div>
 
-                  {/* Statistics Table */}
-                  <div className="flex w-1/3">
-                    <PredictionStatistics
-                      startDate={startDate}
-                      endDate={endDate}
-                      highestPrice={highestPrice}
-                      lowestPrice={lowestPrice}
-                      avgPrice={avgPrice}
-                    />
+                    {/* Statistics Table */}
+                    <div className="flex w-1/3">
+                      <PredictionStatistics
+                        startDate={startDate}
+                        endDate={endDate}
+                        highestPrice={highestPrice}
+                        lowestPrice={lowestPrice}
+                        avgPrice={avgPrice}
+                      />
+                    </div>
                   </div>
-                </div>
-                <PredictionTable data={region.data} />
-              </Card>
-            </div>
-          );
-        })}
+                  <PredictionTable data={region.data} />
+                </Card>
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

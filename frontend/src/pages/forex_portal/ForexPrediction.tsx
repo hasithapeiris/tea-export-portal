@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { InputFormState, PredictionResult } from "../types";
-import { No_Data, Tea_Export } from "../assets";
-import { SubHeader } from "../components";
+import { InputFormState, PredictionResult } from "../../types";
+import { No_Data, Tea_Export } from "../../assets";
+import { SubHeader } from "../../components";
 
 const ForexPrediction: React.FC = () => {
   const [formData, setFormData] = useState<InputFormState>({
