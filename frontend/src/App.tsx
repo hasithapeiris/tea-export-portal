@@ -21,6 +21,11 @@ import {
 import ChatWindow from "./pages/ChatWindow";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import TeaPredictionList from "./pages/predictions/TeaPredictionList";
+import TeaPredictionDetails from "./pages/predictions/TeaPredictionDetails";
+import TeaHistoricalPriceList from "./pages/prices/TeaHistoricalPriceList";
+import HistroyPrice from "./pages/prices/HistroyPrice";
+import PriceHome from "./pages/home/PriceHome";
 
 const ProtectedRoute = ({ adminOnly = false }: { adminOnly?: boolean }) => {
   const { user, loading } = useAuth();
@@ -53,6 +58,25 @@ const App: React.FC = () => {
             <Route
               path="/portal/forex/regional-production-forecast"
               element={<RegionalProdForecast />}
+            />
+
+            {/* Price Routes */}
+            <Route path="/portal/price" element={<PriceHome />} />
+            <Route
+              path="/portal/price/historical-values"
+              element={<TeaPredictionList />}
+            />
+            <Route
+              path="/portal/price/prediction-details/:id"
+              element={<TeaPredictionDetails />}
+            />
+            <Route
+              path="/portal/price/historical-prices-list"
+              element={<TeaHistoricalPriceList />}
+            />
+            <Route
+              path="/portal/price/historical-prices/:id?"
+              element={<HistroyPrice />}
             />
           </Route>
 
