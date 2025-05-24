@@ -21,11 +21,11 @@ const Navbar: React.FC = () => {
           <a href="#about" className="text-white hover:text-yellow-300">
             About
           </a>
-          <Link to="/portal" className="text-white hover:text-yellow-300">
+          <a href="/portal" className="text-white hover:text-yellow-300">
             Portal
-          </Link>
-          <a href="#benefits" className="text-white hover:text-yellow-300">
-            Benefits
+          </a>
+          <a href="#contact" className="text-white hover:text-yellow-300">
+            Contact
           </a>
           {!user ? (
             <Link to="/login" className="button-yellow-outline">

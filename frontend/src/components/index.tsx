@@ -11,6 +11,11 @@ import DashboardLayout from "./DashboardLayout";
 import TeaProductionSummary from "./TeaProductionSummary";
 import FEESummary from "./FEESummary";
 import RegionalSummary from "./RegionalSummary";
+import Portal from "./Portal";
+import TitleBadge from "./TitleBadge";
+import CallToAction from "./CallToAction";
+import About from "./About";
+import ContactUs from "./ContactUs";
 
 export {
   MainCarousel,
@@ -26,4 +31,9 @@ export {
   TeaProductionSummary,
   FEESummary,
   RegionalSummary,
+  Portal,
+  TitleBadge,
+  CallToAction,
+  About,
+  ContactUs,
 };
