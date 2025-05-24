@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { CircleUserRound } from "lucide-react";
+import { Logo } from "../assets";
 
 const Navbar: React.FC = () => {
   const { user, logout } = useAuth();
@@ -10,7 +11,7 @@ const Navbar: React.FC = () => {
       <div className="wrapper flex-between">
         <Link to="/">
           <div className="flex-center gap-2">
-            <img src="/icon.png" alt="TPP Logo" className="h-8 md:h-12" />
+            <img src={Logo} alt="TPP Logo" className="h-6 md:h-8" />
           </div>
         </Link>
 
