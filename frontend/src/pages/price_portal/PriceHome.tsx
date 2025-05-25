@@ -10,11 +10,8 @@ import {
 } from "flowbite-react";
 import { Spinner } from "flowbite-react";
 import Swal from "sweetalert2";
-import card1 from "../../assets/cards/card1.png";
-import card2 from "../../assets/cards/card2.png";
-import card3 from "../../assets/cards/card3.png";
 import { SubHeader } from "../../components";
-import { Tea_Export } from "../../assets";
+import { Card1, Card2, Card3, Tea_Export } from "../../assets";
 
 // Define interfaces for our data structures
 interface CardData {
@@ -98,7 +95,7 @@ const PriceHome = (): JSX.Element => {
       description:
         "Forecast future tea prices based on market trends and historical data. Select a time period to generate accurate predictions.",
       navigateTo: "#",
-      image: card1,
+      image: Card1,
       onClick: () => setOpenModal(true),
     },
     {
@@ -106,7 +103,7 @@ const PriceHome = (): JSX.Element => {
       description:
         "Explore historical tea price trends and gain insights into market fluctuations. Use past data to make informed decisions.",
       navigateTo: "/portal/price/historical-prices-list",
-      image: card2,
+      image: Card2,
       onClick: () => navigate("/portal/price/historical-prices-list"),
     },
     {
@@ -114,7 +111,7 @@ const PriceHome = (): JSX.Element => {
       description:
         "Access a detailed record of past tea prices to track changes and compare market values over time.",
       navigateTo: "/portal/price/historical-prices",
-      image: card3,
+      image: Card3,
       onClick: () => navigate("/portal/price/historical-prices"),
     },
   ];

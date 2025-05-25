@@ -1,3 +1,4 @@
+import Logo from "./logo.svg";
 import Header_1 from "./header_img_1.jpg";
 import Header_2 from "./header_img_2.jpg";
 import Header_3 from "./header_img_3.jpg";
@@ -8,8 +9,13 @@ import Tea_Production from "./tea_production.jpg";
 import Tea_Disease from "./tea_disease.png";
 import Tea_Price from "./tea_price.jpg";
 import Profile from "./profile.png";
+import Icon from "./icon.png";
+import Card1 from "./card1.jpg";
+import Card2 from "./card2.jpg";
+import Card3 from "./card3.png";
 
 export {
+  Logo,
   Header_1,
   Header_2,
   Header_3,
@@ -20,4 +26,8 @@ export {
   Tea_Disease,
   Tea_Price,
   Profile,
+  Icon,
+  Card1,
+  Card2,
+  Card3,
 };

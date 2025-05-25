@@ -1,11 +1,22 @@
 import React from "react";
-import { MainCarousel, Navbar } from "../components";
+import {
+  About,
+  CallToAction,
+  ContactUs,
+  Footer,
+  MainCarousel,
+  Navbar,
+} from "../components";
 
 const Home: React.FC = () => {
   return (
     <div>
       <Navbar />
       <MainCarousel />
+      <About />
+      <CallToAction />
+      <ContactUs />
+      <Footer />
     </div>
   );
 };

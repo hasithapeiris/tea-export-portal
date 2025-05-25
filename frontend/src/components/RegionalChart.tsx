@@ -22,8 +22,17 @@ const RegionalChart: FC<RegionalChartProps> = ({
       <ResponsiveContainer width="100%" height={400}>
         <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="month" />
-          <YAxis />
+          <XAxis
+            dataKey="month"
+            label={{
+              value: "Year-Month",
+              position: "insideBottom",
+              offset: -5,
+            }}
+          />
+          <YAxis
+            label={{ value: "USD Million", angle: -90, position: "insideLeft" }}
+          />
           <Tooltip />
           <Legend />
           <Line

@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-25" />
       <div className="wrapper-header absolute inset-0 flex flex-col justify-end items-center text-center text-white py-4">
         <span className="text-sm animate-fade-in md:text-base">
-          © {new Date().getFullYear()} Tea Information Portal
+          © {new Date().getFullYear()} TheGuard - Tea Export Portal
         </span>
       </div>
     </div>
