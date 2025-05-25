@@ -1,8 +1,8 @@
-import Logo from "../assets/sliit360.svg";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import MenuIco from "../assets/menu.png";
 import { useState } from "react";
 import LogoutMDIco from "../assets/logout_md.png";
+import { Logo } from "../assets";
 
 const DashboardLayout = () => {
   const location = useLocation();

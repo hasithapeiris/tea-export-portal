@@ -9,6 +9,10 @@ import Tea_Production from "./tea_production.jpg";
 import Tea_Disease from "./tea_disease.png";
 import Tea_Price from "./tea_price.jpg";
 import Profile from "./profile.png";
+import Icon from "./icon.png";
+import Card1 from "./card1.jpg";
+import Card2 from "./card2.jpg";
+import Card3 from "./card3.png";
 
 export {
   Logo,
@@ -22,4 +26,8 @@ export {
   Tea_Disease,
   Tea_Price,
   Profile,
+  Icon,
+  Card1,
+  Card2,
+  Card3,
 };

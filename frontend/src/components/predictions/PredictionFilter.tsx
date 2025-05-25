@@ -1,16 +1,5 @@
 import React, { useState, useEffect } from "react";
-
-interface RegionData {
-  date: string;
-  predicted_price?: number;
-  lower_bound?: number;
-  upper_bound?: number;
-}
-
-interface RegionPrediction {
-  region: string;
-  data: RegionData[];
-}
+import { RegionPrediction } from "../../types/prediction-types";
 
 interface PredictionData {
   data: RegionPrediction[];
