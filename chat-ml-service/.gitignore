@@ -1,0 +1,48 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+
+# Environment variables
+.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# VSCode / JetBrains IDE settings
+.vscode/
+.idea/
+
+# Flask & Python cache files
+instance/
+*.log
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Database files
+db/
+chroma/
+
+# Pytest / coverage files
+htmlcov/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+
+# Build and distribution artifacts
+build/
+dist/
+*.egg-info/
+
+# Temporary files
+*.bak
+*.swp
+*.tmp
