@@ -1,27 +1,27 @@
 import { motion } from "framer-motion";
-import { Cpu, BarChart4, CloudSun, TrendingUp } from "lucide-react";
+import { BarChart4, TrendingUp, Leaf, ChartLine } from "lucide-react";
 import TitleBadge from "./TitleBadge";
 
 const solutions = [
   {
-    icon: <Cpu className="text-green-600 w-6 h-6" />,
-    title: "AI-Powered Plantation Monitoring",
-    desc: "Use of machine learning models to predict yield and detect diseases based on environmental and sensor data.",
+    icon: <Leaf className="text-green-600 w-6 h-6" />,
+    title: "Predict Diseases of Tea Leaves",
+    desc: "Use image processing to diagnose diseases in tea leaves and provide ML-based solutions to address them promptly.",
   },
   {
-    icon: <CloudSun className="text-green-600 w-6 h-6" />,
-    title: "Climate-Smart Decision Support",
-    desc: "Real-time weather data and predictive analytics for informed irrigation and fertilization scheduling.",
+    icon: <ChartLine className="text-green-600 w-6 h-6" />,
+    title: "Predict Variations in Tea Price Ranges",
+    desc: "Predict the optimal tea prices for a given location and provide ML-based recommendations. ",
   },
   {
     icon: <BarChart4 className="text-green-600 w-6 h-6" />,
-    title: "Export Forecasting Models",
-    desc: "Advanced time-series models trained on historical production and export data for accurate foreign exchange predictions.",
+    title: "Predict and Identify the Best Demand",
+    desc: "Predict potential foreign markets that can yield high foreign exchange returns.",
   },
   {
     icon: <TrendingUp className="text-green-600 w-6 h-6" />,
-    title: "Smart Dashboard Interface",
-    desc: "Interactive portal for farmers and exporters with visual analytics, alerts, and decision-making tools.",
+    title: "Forecast Tea Production and Export Income",
+    desc: "Use of ML models to forecast the monthly tea production and foreign exchange earnings.",
   },
 ];
 

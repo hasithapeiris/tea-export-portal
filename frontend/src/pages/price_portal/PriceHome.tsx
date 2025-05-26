@@ -1,13 +1,6 @@
 import { useState, type ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  Modal,
-  Button,
-  TextInput,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-} from "flowbite-react";
+import { Modal, Button, TextInput } from "flowbite-react";
 import { Spinner } from "flowbite-react";
 import Swal from "sweetalert2";
 import { SubHeader } from "../../components";
@@ -142,16 +135,16 @@ const PriceHome = (): JSX.Element => {
 
         {/* Modal for entering the number of periods */}
         <Modal show={openModal} onClose={() => setOpenModal(false)}>
-          <ModalHeader>Enter Forecast Period</ModalHeader>
-          <ModalBody>
+          <Modal.Header>Enter Forecast Period</Modal.Header>
+          <Modal.Body>
             <TextInput
               type="number"
               placeholder="Forecast period in months (max 12) "
               value={periods}
               onChange={handleInputChange}
             />
-          </ModalBody>
-          <ModalFooter>
+          </Modal.Body>
+          <Modal.Footer>
             <Button
               onClick={handleGetPredictions}
               className="w-full bg-green-600"
@@ -173,7 +166,7 @@ const PriceHome = (): JSX.Element => {
             >
               Cancel
             </Button>
-          </ModalFooter>
+          </Modal.Footer>
         </Modal>
       </div>
     </>

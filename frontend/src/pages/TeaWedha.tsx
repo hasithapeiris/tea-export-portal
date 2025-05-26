@@ -194,6 +194,76 @@ const TeaWedha: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {/* Setup Instructions Section */}
+        <section
+          id="setup"
+          className="py-16 px-4 md:px-8 border border-gray-200"
+        >
+          <div className="wrapper">
+            <h2 className="text-3xl font-bold text-center mb-4">
+              Setup Instructions
+            </h2>
+            <p className="text-lg text-gray-600 text-center mb-12">
+              Get Started with TeaWedha in just a few simple steps
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              {/* Step 1 */}
+              <div className="flex flex-col items-center text-center group">
+                <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
+                  <span className="text-2xl font-bold text-green-600">1</span>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-gray-800">
+                  Download APK
+                </h3>
+                <p className="text-gray-600">
+                  Download the TeaWedha app from our website to your Android
+                  device.
+                </p>
+              </div>
+
+              {/* Step 2 */}
+              <div className="flex flex-col items-center text-center group">
+                <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
+                  <span className="text-2xl font-bold text-green-600">2</span>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-gray-800">
+                  Enable Unknown Sources
+                </h3>
+                <p className="text-gray-600">
+                  Go to Settings and allow app installs from unknown sources.
+                </p>
+              </div>
+
+              {/* Step 3 */}
+              <div className="flex flex-col items-center text-center group">
+                <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
+                  <span className="text-2xl font-bold text-green-600">3</span>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-gray-800">
+                  Install the App
+                </h3>
+                <p className="text-gray-600">
+                  Open the downloaded APK file and install the app.
+                </p>
+              </div>
+
+              {/* Step 4 */}
+              <div className="flex flex-col items-center text-center group">
+                <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
+                  <span className="text-2xl font-bold text-green-600">4</span>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-gray-800">
+                  Start Monitoring
+                </h3>
+                <p className="text-gray-600">
+                  Launch TeaWedha and connect with your IoT device to begin.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   );
