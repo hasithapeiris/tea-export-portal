@@ -74,7 +74,7 @@ export default function ContactUs() {
           <div className="flex items-center gap-2">
             <Mail className="text-blue-500" />
             <a href="mailto:research@teaportal.org" className="hover:underline">
-              research@teaportal.org
+              theguard.research@gamil.com
             </a>
           </div>
           <div className="flex items-center gap-2">
@@ -89,7 +89,7 @@ export default function ContactUs() {
           </div>
           <div className="flex items-center gap-2">
             <MapPin className="text-red-500" />
-            <span>University of Greenfields, Department of AI</span>
+            <span>Sri Lanka Institute of Information Technology</span>
           </div>
         </div>
       </motion.div>

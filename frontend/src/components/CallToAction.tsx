@@ -88,7 +88,7 @@ export default function CallToAction() {
           >
             {/* Download App Button */}
             <motion.a
-              href="https://drive.google.com/file/d/1iyB9MzOFH1HeOKbDU489-HJf_7lgobGX/view?usp=sharing"
+              href="/teawedha"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="group bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center gap-3 min-w-[250px] justify-center border-2 border-white/20"

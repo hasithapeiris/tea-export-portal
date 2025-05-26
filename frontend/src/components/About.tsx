@@ -37,16 +37,17 @@ const About = () => {
       >
         <TitleBadge name="About TheGuard" />
         <p className="mb-4">
-          Traditional tea plantation management systems lack intelligent
-          automation and are heavily dependent on manual processes. Export
-          forecasting is often inconsistent, disconnected from production
-          patterns, and fails to adapt dynamically to global market shifts.
+          The TheGuard Export Portal is an intelligent platform designed to
+          modernize the Sri Lankan tea industry through machine learning. It
+          empowers stakeholders with data-driven insights to enhance production,
+          improve export strategies, and maximize profitability across the value
+          chain.
         </p>
         <p>
-          There is a significant need for a unified, smart system that
-          integrates ML-powered analytics, climate awareness, and export
-          forecasting to enhance both productivity and international market
-          value.
+          By analyzing images and market trends, the system predicts leaf
+          diseases, pricing fluctuations, and global demand. It also forecasts
+          production volumes and export earnings, enabling timely decisions that
+          boost efficiency and global competitiveness.
         </p>
       </motion.div>
 
