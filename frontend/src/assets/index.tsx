@@ -13,6 +13,8 @@ import Icon from "./icon.png";
 import Card1 from "./card1.jpg";
 import Card2 from "./card2.jpg";
 import Card3 from "./card3.png";
+import AppMockups from "./app_mockups.png";
+import AppQR from "./app_qr.png";
 
 export {
   Logo,
@@ -30,4 +32,6 @@ export {
   Card1,
   Card2,
   Card3,
+  AppMockups,
+  AppQR,
 };

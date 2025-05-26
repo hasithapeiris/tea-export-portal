@@ -67,15 +67,14 @@ export default function CallToAction() {
             className="mb-12"
           >
             <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-              Ready to Transform
+              Transform Your Farming
               <span className="font-heading block bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent">
-                Your Farming?
+                with TeaWedha!
               </span>
             </h2>
             <p className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto mb-8 leading-relaxed">
-              Join thousands of farmers worldwide who are already using our
-              smart agriculture platform to increase yields, reduce costs, and
-              build sustainable farming practices.
+              AI-powered image and audio analysis for disease and termite
+              detection in tea plantations without expert knowledge.
             </p>
           </motion.div>
 
@@ -89,7 +88,7 @@ export default function CallToAction() {
           >
             {/* Download App Button */}
             <motion.a
-              href="#"
+              href="https://drive.google.com/file/d/1iyB9MzOFH1HeOKbDU489-HJf_7lgobGX/view?usp=sharing"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="group bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center gap-3 min-w-[250px] justify-center border-2 border-white/20"

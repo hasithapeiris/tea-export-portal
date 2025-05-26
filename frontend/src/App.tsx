@@ -10,6 +10,7 @@ import {
   NationalProdForecast,
   RegionalProdForecast,
   Profile,
+  TeaWedha,
 } from "./pages";
 import {
   BrowserRouter as Router,
@@ -78,6 +79,8 @@ const App: React.FC = () => {
               path="/portal/price/historical-prices/:id?"
               element={<HistroyPrice />}
             />
+            <Route path="/portal/disease" element={<TeaWedha />} />
+            <Route path="/teawedha" element={<TeaWedha />} />
           </Route>
 
           <Route path="/login" element={<Login />} />

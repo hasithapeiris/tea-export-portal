@@ -37,6 +37,9 @@ const Navbar: React.FC = () => {
           <a href="/portal" className="text-white hover:text-yellow-300">
             Portal
           </a>
+          <a href="/teawedha" className="text-white hover:text-yellow-300">
+            TeaWedha
+          </a>
           <a href="#contact" className="text-white hover:text-yellow-300">
             Contact
           </a>

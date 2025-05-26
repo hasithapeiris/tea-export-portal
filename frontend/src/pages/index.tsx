@@ -8,6 +8,7 @@ import RegionalProdForecast from "./forex_portal/RegionalProdForecast";
 import Dashboard from "./Dashboard";
 import ChatAgent from "./ChatAgent";
 import Profile from "./Profile";
+import TeaWedha from "./TeaWedha";
 
 export {
   Home,
@@ -20,4 +21,5 @@ export {
   Dashboard,
   ChatAgent,
   Profile,
+  TeaWedha,
 };
