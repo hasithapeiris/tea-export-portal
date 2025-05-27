@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
                 isScrolled ? "text-gray-800" : "text-white"
               }`}
             >
-              TheGuard
+              ThéGuard
             </h1>
           </div>
         </Link>
